@@ -1,0 +1,29 @@
+@import "variables";
+
+.container {
+  padding: 1rem 2rem;
+}
+
+.details-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: fit-content;
+
+  .actor-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: $grey;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.actor-details {
+  justify-items: center;
+}
+
+.actor-character {
+  color: $grey;
+}

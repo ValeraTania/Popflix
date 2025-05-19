@@ -1,0 +1,24 @@
+@import "variables";
+
+input {
+  width: 100%;
+  background: $white;
+  padding: 0.8rem 2rem;
+  border: 0;
+  border-radius: calc($borderRadius/2);
+  outline: none;
+  opacity: 95%;
+  transition: border 1s ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $black;
+    font-weight: 200;
+  }
+
+  &:focus {
+    background: $cardBg;
+    border: $borderColor;
+    color: $white;
+  }
+}

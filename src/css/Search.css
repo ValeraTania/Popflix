@@ -1,0 +1,24 @@
+input {
+  width: 100%;
+  background: #fff;
+  padding: 0.8rem 2rem;
+  border: 0;
+  border-radius: 0.25rem;
+  outline: none;
+  opacity: 95%;
+  transition: border 1s ease;
+  box-sizing: border-box;
+}
+input::-moz-placeholder {
+  color: #0f1c2e;
+  font-weight: 200;
+}
+input::placeholder {
+  color: #0f1c2e;
+  font-weight: 200;
+}
+input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}/*# sourceMappingURL=Search.css.map */

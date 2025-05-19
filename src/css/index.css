@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #F3F4F6;
+}
+body a,
+body h1,
+body h2,
+body h3,
+body p,
+body .icon-theme {
+  color: #000;
+}
+body .footer {
+  background: #fff;
+}
+
+.themeDark {
+  background: radial-gradient(ellipse at top, #022446, #000), radial-gradient(ellipse at center, #000);
+}
+.themeDark a,
+.themeDark h1,
+.themeDark h2,
+.themeDark h3,
+.themeDark p,
+.themeDark .icon-theme {
+  color: #fff;
+}
+.themeDark .footer {
+  background: #0c0c0c;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0 2rem 0;
+}
+
+.grid-horizontal {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  grid-auto-columns: minmax(200px, min-content);
+}
+
+.category {
+  text-align: left;
+  padding: 2rem 0 0.5rem 0;
+}
+
+.loading {
+  text-align: center;
+}
+
+.search-result {
+  max-width: 250px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  background-color: #e0e0e0;
+  height: 200px;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+  background-size: cover;
+}
+
+.bento-item:hover {
+  transform: scale(1.03);
+}/*# sourceMappingURL=index.css.map */

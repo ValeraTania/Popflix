@@ -1,0 +1,81 @@
+@import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: $bgLight;
+  @include light;
+  @include lightThemeBg;
+}
+
+//Dark mode
+.themeDark {
+  background: radial-gradient(ellipse at top, $bgDark, $black),
+    radial-gradient(ellipse at center, $black);
+
+  @include dark;
+  @include darkThemeBg;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0 2rem 0;
+}
+
+.grid-horizontal {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  grid-auto-columns: minmax(200px, min-content);
+}
+
+.category {
+  text-align: left;
+  padding: 2rem 0 0.5rem 0;
+}
+
+.loading {
+  text-align: center;
+}
+
+.search-result {
+  max-width: 250px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+//bento
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  background-color: #e0e0e0;
+  height: 200px;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+  background-size: cover;
+}
+
+.bento-item:hover {
+  transform: scale(1.03);
+}

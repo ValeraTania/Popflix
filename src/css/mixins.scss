@@ -1,0 +1,36 @@
+@import 'variables';
+
+@mixin light {
+  a,
+  h1,
+  h2,
+  h3,
+  p,
+  .icon-theme {
+    color: $black;
+  }
+}
+
+@mixin dark {
+  a,
+  h1,
+  h2,
+  h3,
+  p,
+  .icon-theme {
+    color: $white;
+  }
+}
+
+@mixin darkThemeBg {
+  .footer {
+    background: $footerBg;
+  }
+}
+
+@mixin lightThemeBg {
+  .footer
+ {
+    background: $white;
+  }
+}
