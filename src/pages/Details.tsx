@@ -23,7 +23,6 @@ export default function Details() {
         options
       );
       const item = await response.json();
-      console.log("item ", item);
       setItem(item);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -46,10 +45,7 @@ export default function Details() {
         <h4 className="loading">Loading...</h4>
       ) : (
         <div className="details-container">
-          {/* <div
-            className="backdrop-img"
-            style={{ backgroundImage: `url(${imageUrl})` }}
-          ></div> */}
+         
 
           <div className="details-container-header backdrop-img" style={{ backgroundImage: `url(${imageUrl})`  }}>
            

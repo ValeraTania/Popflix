@@ -7,16 +7,19 @@ import "./css/index.css";
 import "./css/Card.css";
 import "./css/NavBar.css";
 import "./css/Details.css";
+import "./css/Home.css";
 
 //import Pages
-import Movies from "./pages/Movies.tsx";
 import Series from "./pages/Series.tsx";
 import Home from "./pages/Home.tsx";
+import Movies from "./pages/Movies.tsx";
+import Details from "./pages/Details.tsx";
+
 
 //import Components
 import NavBar from "./components/NavBar.tsx";
-import Details from "./pages/Details.tsx";
 import Footer from "./components/Footer.tsx";
+import Search from "./components/Search.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -25,10 +28,11 @@ createRoot(document.getElementById("root")!).render(
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
+        <Route path="/movie" element={<Movies />} />
         <Route path="/tv" element={<Series />} />
         {/* Dynamic route for movie/serie details */}
         <Route path="/:mediaType/:id" element={<Details />} />
+        <Route path="/search/:mediaType" element={<Search/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

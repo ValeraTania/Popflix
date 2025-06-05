@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import { Link } from "react-router";
-import { Movie } from "../interface/MediaInterface";
+import { Media } from "../interface/MediaInterface";
 import { options } from "../utils/authKey";
-import "../css/Search.css";
-import { faListUl,faGrip } from "@fortawesome/free-solid-svg-icons";
+import { faListUl, faGrip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Movies() {
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
+  const [grid, setGrid] = useState('grid');
 
   const [popularMovies, setpopularMovies] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -51,67 +50,25 @@ export default function Movies() {
     });
   }, []);
 
-  //All movies
-  const allMovies = [
-    ...popularMovies,
-    ...nowPlaying,
-    ...topRated,
-    ...airingToday,
-  ];
-
-  const uniqueMovies = new Set();
-  const uniqueItems = allMovies.filter((movie: Movie) => {
-    if (uniqueMovies.has(movie.id)) {
-      return false;
-    }
-    uniqueMovies.add(movie.id);
-    return true;
-  });
-
-  const searchResult = uniqueItems.filter((movie: Movie) =>
-    movie.title.toLowerCase().startsWith(search.toLowerCase())
-  );
-
+  
   return (
     <div className="container">
-      <input
-        type="text"
-        placeholder="Search by name..."
-        className="search-input"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+     
 
       <div className="view-options">
-        <button>        <FontAwesomeIcon icon={faListUl} className="icon-theme" />
-</button>
-        <FontAwesomeIcon icon={faGrip} className="icon-theme"/>
+        <button onClick={()=>{setGrid('grid-horizontal')}}>
+          <FontAwesomeIcon icon={faListUl}  className="icon-theme"/>
+        </button>
+        <button onClick={()=>{setGrid('grid')}}><FontAwesomeIcon icon={faGrip} className="icon-theme" /></button>
       </div>
 
       {loading ? (
         <h3 className="loading ">Loading...</h3>
-      ) : //  search
-      search.length > 0 ? (
-        <div className="grid-horizontal">
-          {searchResult.map((result: Movie) => (
-            <Link
-              to={`/movie/${result.id}`}
-              key={result.id}
-              className="search-result"
-            >
-              <Card
-                key={result.id}
-                element={result}
-                date={result.release_date.split("-")[0]}
-              />
-            </Link>
-          ))}
-        </div>
       ) : (
         <>
           <h2 className="category ">Popular movies</h2>
-          <div className="grid">
-            {popularMovies.map((popularMovie: Movie) => (
+          <section className={grid}>
+            {popularMovies.map((popularMovie: Media) => (
               <Link to={`/movie/${popularMovie.id}`} key={popularMovie.id}>
                 <Card
                   element={popularMovie}
@@ -119,11 +76,11 @@ export default function Movies() {
                 />
               </Link>
             ))}
-          </div>
+          </section>
 
           <h2 className="category ">Now Playing</h2>
-          <div className="grid-horizontal">
-            {nowPlaying.map((playing: Movie) => (
+          <section className={grid}>
+            {nowPlaying.map((playing: Media) => (
               <Link to={`/movie/${playing.id}`} key={playing.id}>
                 <Card
                   element={playing}
@@ -131,20 +88,20 @@ export default function Movies() {
                 />
               </Link>
             ))}
-          </div>
+          </section>
 
           <h2 className="category ">Top rated</h2>
-          <div className="grid-horizontal">
-            {topRated.map((rated: Movie) => (
+          <section className={grid}>
+            {topRated.map((rated: Media) => (
               <Link to={`/movie/${rated.id}`} key={rated.id}>
                 <Card element={rated} date={rated.release_date.split("-")[0]} />
               </Link>
             ))}
-          </div>
+          </section>
 
           <h2 className="category ">Upcoming</h2>
-          <div className="grid-horizontal">
-            {airingToday.map((airing: Movie) => (
+          <section className={grid}>
+            {airingToday.map((airing: Media) => (
               <Link to={`/movie/${airing.id}`} key={airing.id}>
                 <Card
                   element={airing}
@@ -152,7 +109,7 @@ export default function Movies() {
                 />
               </Link>
             ))}
-          </div>
+          </section>
         </>
       )}
     </div>

@@ -3,20 +3,13 @@ import "../css/Recommended.css";
 import { Link } from "react-router";
 import { useParams } from "react-router";
 import { MediaType } from "../interface/MediaInterface";
+import { options } from "../utils/authKey";
 
 export default function Recommended() {
   const { mediaType, id } = useParams<{ mediaType: MediaType; id: string }>();
 
   const [loading, setLoading] = useState(true);
   const [recommended, setRecommended] = useState([]);
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzRjM2ZlOWIyZGQ5YmQxNTQzYzhlZWRiYTU0ZTkzMSIsIm5iZiI6MTc0MjE1NzE2My4wMjksInN1YiI6IjY3ZDczNTZiMzE1MzhkZTYwOGYxYmFhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.g1NFgZQFkQCTa6A5ffKDJXyLcmnKxXKA2xoTRTViHcE",
-    },
-  };
 
   const getGenres = async () => {
     try {

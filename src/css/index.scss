@@ -8,18 +8,19 @@
 }
 
 body {
-  background: $bgLight;
+  background: $white;
   @include light;
   @include lightThemeBg;
 }
 
 //Dark mode
 .themeDark {
-  background: radial-gradient(ellipse at top, $bgDark, $black),
-    radial-gradient(ellipse at center, $black);
-
+  background: linear-gradient($bgDark, $black);
   @include dark;
   @include darkThemeBg;
+  .nav {
+    background: $bgDark;
+  }
 }
 
 .grid {
@@ -34,7 +35,7 @@ body {
   grid-auto-flow: column;
   overflow-x: auto;
   gap: 2rem;
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0;
   scrollbar-width: none;
   grid-auto-columns: minmax(200px, min-content);
 }
@@ -56,26 +57,14 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 1rem 0;
+  font-size: 12px;
 }
 
-//bento
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  padding: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
+.view-options {
+  justify-self: flex-end;
 }
 
-.bento-item {
-  background-color: #e0e0e0;
-  height: 200px;
-  border-radius: 12px;
-  transition: transform 0.2s ease;
-  background-size: cover;
-}
-
-.bento-item:hover {
-  transform: scale(1.03);
+button {
+  background: none;
+  border: 0;
 }

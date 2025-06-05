@@ -10,11 +10,11 @@ input {
   box-sizing: border-box;
 }
 input::-moz-placeholder {
-  color: #0f1c2e;
+  color: #000;
   font-weight: 200;
 }
 input::placeholder {
-  color: #0f1c2e;
+  color: #000;
   font-weight: 200;
 }
 input:focus {
